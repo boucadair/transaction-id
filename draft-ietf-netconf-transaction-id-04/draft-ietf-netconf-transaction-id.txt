@@ -2766,12 +2766,6 @@ Table of Contents
          "RFC 8641: Subscriptions to YANG Datastores";
      }
 
-     import ietf-yang-patch {
-       prefix ypatch;
-       reference
-         "RFC 8072: YANG Patch Media Type";
-     }
-
      import ietf-netconf-txid {
        prefix ietf-netconf-txid;
        reference
