@@ -4,8 +4,8 @@
 
 NETCONF                                                      J. Lindblad
 Internet-Draft                                             Cisco Systems
-Intended status: Standards Track                            19 June 2024
-Expires: 21 December 2024
+Intended status: Standards Track                            20 June 2024
+Expires: 22 December 2024
 
 
                   Transaction ID Mechanism for NETCONF
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 December 2024.
+   This Internet-Draft will expire on 22 December 2024.
 
 Copyright Notice
 
@@ -113,14 +113,15 @@ Table of Contents
      7.2.  Unchanged Configuration
    8.  IANA Considerations
    9.  Changes
-     9.1.  Major changes in -04 since -03
-     9.2.  Major changes in -03 since -02
-     9.3.  Major changes in -02 since -01
-     9.4.  Major changes in -01 since -00
-     9.5.  Major changes in draft-ietf-netconf-transaction-id-00 since
+     9.1.  Major changes in -05 since -04
+     9.2.  Major changes in -04 since -03
+     9.3.  Major changes in -03 since -02
+     9.4.  Major changes in -02 since -01
+     9.5.  Major changes in -01 since -00
+     9.6.  Major changes in draft-ietf-netconf-transaction-id-00 since
            -02
-     9.6.  Major changes in -02 since -01
-     9.7.  Major changes in -01 since -00
+     9.7.  Major changes in -02 since -01
+     9.8.  Major changes in -01 since -00
    10. References
      10.1.  Normative References
      10.2.  Informative References
@@ -1311,8 +1312,7 @@ Table of Contents
    [RFC6241], xmlns:ncds="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda"
    [RFC8526], xmlns:sn="urn:ietf:params:xml:ns:yang:ietf-subscribed-
    notifications" [RFC8639], xmlns:yp="urn:ietf:params:xml:ns:yang:ietf-
-   yang-push" [RFC8641] and
-   xmlns:ypatch="urn:ietf:params:xml:ns:yang:ietf-yang-patch" [RFC8072]:
+   yang-push" [RFC8641] [RFC8072]:
 
    In client messages sent to a server:
 
@@ -1346,17 +1346,16 @@ Table of Contents
 
    *  /nc:rpc-reply/nc:ok
 
-   *  /yp:push-update/yp:datastore-contents/ypatch:yang-patch/
-      ypatch:edit
+   *  /yp:push-update/yp:datastore-contents/yp:yang-patch/ yp:edit
 
-   *  /yp:push-update/yp:datastore-contents/ypatch:yang-patch/
-      ypatch:edit/ypatch:value//*
+   *  /yp:push-update/yp:datastore-contents/yp:yang-patch/ yp:edit/
+      yp:value//*
 
-   *  /yp:push-change-update/yp:datastore-contents/ypatch:yang-patch/
-      ypatch:edit
+   *  /yp:push-change-update/yp:datastore-contents/yp:yang-patch/
+      yp:edit
 
-   *  /yp:push-change-update/yp:datastore-contents/ypatch:yang-patch/
-      ypatch:edit/ypatch:value//*
+   *  /yp:push-change-update/yp:datastore-contents/yp:yang-patch/
+      yp:edit/yp:value//*
 
 5.  Txid Mechanism Examples
 
@@ -3050,13 +3049,17 @@ Table of Contents
 
 9.  Changes
 
-9.1.  Major changes in -04 since -03
+9.1.  Major changes in -05 since -04
+
+   *  Corrected namespace for reference to elements in ietf-yang-push
+
+9.2.  Major changes in -04 since -03
 
    *  Updated security considerations.
 
    *  Added several normative RFC references.
 
-9.2.  Major changes in -03 since -02
+9.3.  Major changes in -03 since -02
 
    *  Updated language slightly regarding format of etag values, and
       some recommendations for implementors that support etags in
@@ -3067,7 +3070,7 @@ Table of Contents
 
    *  Corrected the YANG-push namespace reference.
 
-9.3.  Major changes in -02 since -01
+9.4.  Major changes in -02 since -01
 
    *  Added optional to implement Txid History concept in order to make
       the algorithm both more efficient and less verbose.  Servers may
@@ -3087,7 +3090,7 @@ Table of Contents
       netconf-txid:last-modified in order to reduce redundant mentions
       of "txid".
 
-9.4.  Major changes in -01 since -00
+9.5.  Major changes in -01 since -00
 
    *  Changed YANG-push txid mechanism to use a simple leaf rather than
       an attribute to convey txid information.  This is preferable since
@@ -3123,7 +3126,7 @@ Table of Contents
 
    *  Corrected acl data model examples to conform to their YANG module.
 
-9.5.  Major changes in draft-ietf-netconf-transaction-id-00 since -02
+9.6.  Major changes in draft-ietf-netconf-transaction-id-00 since -02
 
    *  Changed the logic around how txids are handled in the candidate
       datastore, both when reading (get-config, get-data) and writing
@@ -3152,7 +3155,7 @@ Table of Contents
    *  Corrected a logic error in the second figure (figure 6) in the
       "Conditional Transactions" section
 
-9.6.  Major changes in -02 since -01
+9.7.  Major changes in -02 since -01
 
    *  A last-modified txid mechanism has been added (back).  This
       mechanism aligns well with the Last-Modified mechanism defined in
@@ -3189,7 +3192,7 @@ Table of Contents
       are included in the source document.  These modules can be
       compiled as proper modules without any extraction tools.
 
-9.7.  Major changes in -01 since -00
+9.8.  Major changes in -01 since -00
 
    *  Updated the text on numerous points in order to answer questions
       that appeared on the mailing list.
